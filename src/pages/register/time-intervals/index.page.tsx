@@ -71,7 +71,7 @@ export default function ConnectCalendar() {
     control,
     watch,
     formState: { isSubmitting, errors },
-  } = useForm<TimeIntervalsFormInput>({
+  } = useForm<TimeIntervalsFormInput, unknown, TimeIntervalsFormOutput>({
     resolver: zodResolver(timeIntervalsTimeFormSchema),
     defaultValues: {
       intervals: [
@@ -130,9 +130,9 @@ export default function ConnectCalendar() {
 
   const intervals = watch('intervals')
 
-  async function handleSetTimeIntevals(data: unknown) {
-    const formData = data as TimeIntervalsFormOutput
-    console.log(formData)
+  async function handleSetTimeIntevals(data: TimeIntervalsFormOutput) {
+    // const formData = data as TimeIntervalsFormOutput
+    console.log(data)
   }
 
   return (
