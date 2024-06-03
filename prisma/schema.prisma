@@ -14,6 +14,7 @@ model User {
   id         String  @id @default(uuid())
   username   String  @unique
   name       String
+  bio        String?
   email      String? @unique
   avatar_url String?
 
@@ -60,7 +61,7 @@ model UserTimeInterval {
   time_start_in_minutes Int
   time_end_in_minutes   Int
 
-  user   User   @relation(fields: [user_id], references: [id])
+  user    User   @relation(fields: [user_id], references: [id])
   user_id String
 
   @@map("user_time_intervals")
